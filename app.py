@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-from flask_login import login_manager, LoginManager
+from flask_login import  LoginManager, login_user
 from flask_bcrypt import Bcrypt
 
 app = Flask(__name__)
