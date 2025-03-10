@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}La Ligne 13 - Coaching{% endblock %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/coaching_details.css') }}">
+{% endblock %}
+
+{% block content %}
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Du coaching...</h1>
+        </div>
+    </section>
+
+    <section class="coaching-content">
+        <div class="container">
+            <div class="coaching-grid">
+                <div class="coaching-card leadership">
+                    <div class="card-image">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-XlTsJ1Uo60iiA8U8SB2EAgdnvAWQAr.png" alt="Leadership féminin coaching">
+                    </div>
+                    <div class="card-content">
+                        <h2>... Pour révéler le leadership féminin</h2>
+                        <p class="description">
+                            Faites grandir vos équipes et talents féminin avec le coaching (format standard et flash coaching).
+                        </p>
+                        <ul class="features-list">
+                            <li>Prendre sa place</li>
+                            <li>Réussir sa prise de poste</li>
+                            <li>Prendre confiance</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="coaching-card mentorat">
+                    <div class="card-image">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-XlTsJ1Uo60iiA8U8SB2EAgdnvAWQAr.png" alt="Mentorat coaching">
+                    </div>
+                    <div class="card-content">
+                        <h2>... Pour développer le mentorat</h2>
+                        <p class="description">
+                            Développons ensemble vos programmes de mentorats.
+                        </p>
+                        <ul class="features-list">
+                            <li>Développer les compétences</li>
+                            <li>Développer la culture de l'entraide</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-section">
+                <div class="quote-content">
+                    <blockquote>
+                        "Favorisez la mixité de vos équipes pour que vos équipes soient le reflet de la société et performent encore mieux !"
+                    </blockquote>
+                    <div class="quote-author">
+                        <div class="author-image">
+                            <img src="{{ url_for('static', filename='images/placeholder.jpg') }}" alt="Audrey Rebout">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
