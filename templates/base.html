@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}La Ligne 13{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    {% block page_css %}{% endblock %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -13,7 +14,7 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <a href="{{ url_for('home') }}">La Ligne 13</a>
+                    <a href="{{ url_for('home') }}"><img class="logo" src="{{ url_for('static', filename='images/placeholder2.png') }}" alt="Audrey Rebout - La Ligne 13"></a>
                 </div>
                 <nav class="main-nav">
                     <ul>
@@ -24,13 +25,17 @@
                         <li><a href="{{ url_for('contact') }}">Contact</a></li>
                     </ul>
                 </nav>
-                <button class="btn primary-btn">Prenons rendez-vous</button>
+                <a href="{{ url_for('home') }}" class="btn primary-btn" style="margin-left: 100px;">Blog</a>
+                <a href="{{ url_for('home') }}" class="btn primary-btn" style="background-color: #f9a8c9; margin-right: 100px;">Connexion</a>
                 <button class="mobile-menu-btn">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
     </header>
+    
+    <!-- Separator Line -->
+    <div class="header-separator"></div>
 
     <!-- Main Content -->
     <main>

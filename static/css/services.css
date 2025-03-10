@@ -1,0 +1,207 @@
+/* Styles spécifiques à la page Services */
+
+/* Page Header */
+.page-header {
+  padding: 4rem 0;
+  text-align: center;
+  background: linear-gradient(to bottom, rgba(51, 12, 89, 0.8), var(--background));
+  position: relative;
+  overflow: hidden;
+}
+
+.page-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--secondary), transparent);
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: 1rem;
+  text-shadow: 0 0 15px rgba(255, 235, 91, 0.3);
+}
+
+.page-description {
+  font-size: 1.35rem;
+  color: var(--mauve);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Services Content */
+.services-content {
+  padding: 5rem 0;
+}
+
+.service-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 6rem;
+  align-items: center;
+  position: relative;
+}
+
+.service-detail:last-child {
+  margin-bottom: 0;
+}
+
+.service-detail::after {
+  content: "";
+  position: absolute;
+  bottom: -3rem;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--mauve), transparent);
+}
+
+.service-detail:last-child::after {
+  display: none;
+}
+
+.service-detail.reverse {
+  direction: rtl;
+}
+
+.service-detail.reverse .service-info {
+  direction: ltr;
+}
+
+.service-image {
+  position: relative;
+  transform: translateY(0);
+  transition: transform 0.5s ease;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.service-image::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(to right, var(--foreground), var(--secondary));
+  border-radius: var(--radius);
+  opacity: 0.7;
+  filter: blur(15px);
+  z-index: -1;
+  transition: opacity 0.5s ease, filter 0.5s ease;
+}
+
+.service-image:hover {
+  transform: translateY(-10px);
+}
+
+.service-image:hover::before {
+  opacity: 0.9;
+  filter: blur(20px);
+}
+
+.service-image img {
+  border-radius: var(--radius);
+  border: 2px solid rgba(249, 168, 201, 0.3);
+  object-fit: cover;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  transition: transform 0.5s ease;
+}
+
+.service-image:hover img {
+  transform: scale(1.05);
+}
+
+.service-info h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--foreground);
+}
+
+.service-info .text-mauve {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--mauve);
+}
+
+.service-list {
+  margin: 2rem 0;
+  color: var(--mauve);
+}
+
+.service-list li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+}
+
+.service-list li:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: var(--secondary);
+  border-radius: 50%;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.service-list li:hover:before {
+  transform: scale(1.2);
+  background-color: var(--foreground);
+}
+
+.service-info .btn {
+  margin-top: 1rem;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.service-info .btn:hover {
+  transform: translateY(-3px);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .service-detail {
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-detail,
+  .service-detail.reverse {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    direction: ltr;
+  }
+
+  .page-title {
+    font-size: 2.25rem;
+  }
+
+  .page-description {
+    font-size: 1.1rem;
+  }
+
+  .service-info h2 {
+    font-size: 2rem;
+  }
+
+  .service-info .text-mauve {
+    font-size: 1rem;
+  }
+
+  .service-list li {
+    font-size: 1rem;
+  }
+}
+

@@ -2,6 +2,10 @@
 
 {% block title %}La Ligne 13 - Contact{% endblock %}
 
+{% block page_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
+{% endblock %}
+
 {% block content %}
     <section class="page-header">
         <div class="container">
