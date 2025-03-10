@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+{% block title %}La Ligne 13 - Ateliers{% endblock %}
+
+{% block content %}
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Nos Ateliers</h1>
+            <p class="page-description">Des expériences immersives pour développer les compétences et renforcer la cohésion</p>
+        </div>
+    </section>
+
+    <section class="ateliers-content">
+        <div class="container">
+            <div class="ateliers-intro">
+                <p class="text-mauve">
+                    Nos ateliers sont conçus pour créer des expériences d'apprentissage immersives et transformatives. Chaque atelier est adapté aux besoins spécifiques de votre équipe et de votre organisation.
+                </p>
+            </div>
+
+            <div class="ateliers-categories">
+                <div class="category">
+                    <h2 class="section-title">Cohésion d'équipe</h2>
+                    <div class="ateliers-list">
+                        <div class="atelier-item">
+                            <h3 class="atelier-title">CODEV - Développement collaboratif</h3>
+                            <p class="atelier-description">
+                                Un format structuré permettant à un groupe de pairs de s'entraider pour résoudre des problématiques professionnelles concrètes.
+                            </p>
+                            <div class="atelier-details">
+                                <span class="atelier-duration">Durée: 3h</span>
+                                <span class="atelier-participants">Participants: 6-10</span>
+                            </div>
+                        </div>
+                        <div class="atelier-item">
+                            <h3 class="atelier-title">Tour de parole structuré</h3>
+                            <p class="atelier-description">
+                                Technique permettant à chacun de s'exprimer dans un cadre sécurisant et d'être véritablement écouté par les autres.
+                            </p>
+                            <div class="atelier-details">
+                                <span class="atelier-duration">Durée: 2h</span>
+                                <span class="atelier-participants">Participants: 5-15</span>
+                            </div>
+                        </div>
+                        <div class="atelier-item">
+                            <h3 class="atelier-title">Art du feedback constructif</h3>
+                            <p class="atelier-description">
+                                Apprendre à donner et recevoir des feedbacks de manière constructive pour favoriser la progression individuelle et collective.
+                            </p>
+                            <div class="atelier-details">
+                                <span class="atelier-duration">Durée: 3h</span>
+                                <span class="atelier-participants">Participants: 6-12</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category">
+                    <h2 class="section-title">Collaboration efficace</h2>
+                    <div class="ateliers-list">
+                        <div class="atelier-item">
+                            <h3 class="atelier-title">Atelier d'intelligence collective</h3>
+                            <p class="atelier-description">
+                                Mobiliser l'intelligence du groupe pour résoudre des problèmes complexes et générer des solutions innovantes.
+                            </p>
+                            <div class="atelier-details">
+                                <span class="atelier-duration">Durée: 4h</span>
+                                <span class="atelier-participants">Participants: 8-20</span>
+                            </div>
+                        </div>
+                        <div class="atelier-item">
+                            <h3 class="atelier-title">CODEV inter-services</h3>
+                            <p class="atelier-description">
+                                Favoriser la collaboration entre différents services ou départements pour une meilleure compréhension mutuelle.
+                            </p>
+                            <div class="atelier-details">
+                                <span class="atelier-duration">Durée: 3h</span>
+                                <span class="atelier-participants">Participants: 6-12</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category">
+                    <h2 class="section-title">Développement personnel</h2>
+                    <div class="ateliers-list">
+                        <div class="atelier-item">
+                            <h3 class="atelier-title">IAmRemarkable</h3>
+                            <p class="atelier-description">
+                                Atelier visant à renforcer la confiance en soi et la capacité à valoriser ses réalisations et compétences.
+                            </p>
+                            <div class="atelier-details">
+                                <span class="atelier-duration">Durée: 2h30</span>
+                                <span class="atelier-participants">Participants: 5-10</span>
+                            </div>
+                        </div>
+                        <div class="atelier-item">
+                            <h3 class="atelier-title">Visualisation et projection</h3>
+                            <p class="atelier-description">
+                                Techniques de visualisation pour clarifier ses objectifs et se projeter dans sa réussite professionnelle.
+                            </p>
+                            <div class="atelier-details">
+                                <span class="atelier-duration">Durée: 2h</span>
+                                <span class="atelier-participants">Participants: 5-12</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ateliers-cta">
+                <h2 class="section-title">Vous souhaitez organiser un atelier sur mesure ?</h2>
+                <p class="text-mauve">
+                    Contactez-nous pour discuter de vos besoins spécifiques et nous créerons ensemble un atelier adapté à votre contexte.
+                </p>
+                <a href="{{ url_for('contact') }}" class="btn primary-btn">Prenons rendez-vous</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

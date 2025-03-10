@@ -1,0 +1,292 @@
+{% extends 'base.html' %}
+
+{% block title %}La Ligne 13 - Accueil{% endblock %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <h1 class="hero-title">La Ligne 13</h1>
+                    <p class="hero-subtitle">"Chaque chemin commence par une ligne"</p>
+                    <div class="hero-info">
+                        <h2>Audrey Rebout</h2>
+                        <p>Coach certifiée & Experte en développement professionnel</p>
+                    </div>
+                    <p class="hero-description">
+                        Après 15 ans d'expérience, j'accompagne les équipes et les individus vers une meilleure collaboration et un développement professionnel équilibré.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="{{ url_for('contact') }}" class="btn primary-btn">
+                            Prenons rendez-vous <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="{{ url_for('about') }}" class="btn secondary-btn">
+                            En savoir plus
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-glow"></div>
+                    <img src="{{ url_for('static', filename='images/placeholder.jpg') }}" alt="Audrey Rebout - La Ligne 13">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <div class="tag">Notre approche</div>
+                    <h2 class="section-title">Une méthode douce et pragmatique</h2>
+                    <p class="section-description">
+                        Chez La Ligne 13, nous croyons en une approche équilibrée du développement professionnel. Notre méthode s'appuie sur des outils concrets et des techniques éprouvées pour favoriser l'épanouissement de chacun dans son environnement de travail.
+                    </p>
+                    <div class="features-grid">
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-sparkles"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Développement personnel</h3>
+                                <p>Techniques concrètes pour renforcer la confiance et les compétences</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Cohésion d'équipe</h3>
+                                <p>Méthodes pour améliorer la communication et la collaboration</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-card">
+                    <div class="card-glow"></div>
+                    <div class="card">
+                        <h3 class="card-title">Notre philosophie</h3>
+                        <p class="card-subtitle">Une approche centrée sur les résultats</p>
+                        <div class="card-content">
+                            <p>
+                                "Je crois profondément que chaque personne possède un potentiel unique qui ne demande qu'à s'exprimer dans un environnement adapté."
+                            </p>
+                            <p>
+                                Notre travail consiste à créer les conditions favorables pour que chacun puisse développer ses talents et contribuer pleinement à la réussite collective.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <div class="tag">Nos services</div>
+                <h2 class="section-title">Développement professionnel</h2>
+                <p class="section-description">
+                    Des solutions adaptées pour favoriser l'épanouissement individuel et collectif
+                </p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="card-highlight"></div>
+                    <h3 class="card-title">Communication</h3>
+                    <p class="card-description">
+                        Développez une communication efficace et bienveillante au sein de vos équipes pour une meilleure collaboration et des résultats optimisés.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="card-highlight"></div>
+                    <h3 class="card-title">Équilibre professionnel</h3>
+                    <p class="card-description">
+                        Créez un environnement de travail où chacun peut s'épanouir et apporter sa contribution unique pour une performance collective améliorée.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="card-highlight"></div>
+                    <h3 class="card-title">Leadership</h3>
+                    <p class="card-description">
+                        Développez les compétences de leadership à tous les niveaux de votre organisation pour une gestion plus efficace et inspirante.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ateliers Section -->
+    <section class="ateliers" id="ateliers">
+        <div class="container">
+            <div class="section-header">
+                <div class="tag">Nos ateliers</div>
+                <h2 class="section-title">Ateliers collaboratifs</h2>
+                <p class="section-description">
+                    Des expériences immersives pour développer les compétences et renforcer la cohésion
+                </p>
+            </div>
+            <div class="ateliers-grid">
+                <div class="atelier-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="card-title">Cohésion d'équipe</h3>
+                    </div>
+                    <ul class="card-list">
+                        <li>CODEV - Développement collaboratif</li>
+                        <li>Tour de parole structuré</li>
+                        <li>Art du feedback constructif</li>
+                        <li>Visualisation et projection</li>
+                    </ul>
+                </div>
+                <div class="atelier-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-sparkles"></i>
+                        </div>
+                        <h3 class="card-title">Collaboration efficace</h3>
+                    </div>
+                    <ul class="card-list">
+                        <li>Atelier d'intelligence collective</li>
+                        <li>CODEV inter-services</li>
+                        <li>Mentorat entre générations</li>
+                        <li>Ateliers de compréhension mutuelle</li>
+                    </ul>
+                </div>
+                <div class="atelier-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-calendar"></i>
+                        </div>
+                        <h3 class="card-title">Développement personnel</h3>
+                    </div>
+                    <ul class="card-list">
+                        <li>IAmRemarkable</li>
+                        <li>Développement des talents</li>
+                        <li>Visualisation et projection</li>
+                        <li>Atelier "Pourquoi pas moi?"</li>
+                        <li>Modèles inspirants</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coaching Section -->
+    <section class="coaching" id="coaching">
+        <div class="container">
+            <div class="section-header">
+                <div class="tag">Coaching</div>
+                <h2 class="section-title">Accompagnement personnalisé</h2>
+                <p class="section-description">
+                    Un suivi adapté à vos besoins spécifiques pour atteindre vos objectifs professionnels
+                </p>
+            </div>
+            <div class="coaching-grid">
+                <div class="coaching-card">
+                    <h3 class="card-title">Développement professionnel</h3>
+                    <p class="card-description">
+                        Accompagnement pour développer votre potentiel et affirmer votre place dans votre environnement professionnel.
+                    </p>
+                </div>
+                <div class="coaching-card">
+                    <h3 class="card-title">Réussir sa prise de poste</h3>
+                    <p class="card-description">
+                        Stratégies et outils pour réussir les premiers mois dans un nouveau poste et établir votre légitimité.
+                    </p>
+                </div>
+                <div class="coaching-card">
+                    <h3 class="card-title">Confiance et affirmation</h3>
+                    <p class="card-description">
+                        Développer la confiance en soi et surmonter les doutes pour exprimer pleinement votre potentiel.
+                    </p>
+                </div>
+                <div class="coaching-card">
+                    <h3 class="card-title">Développement des compétences</h3>
+                    <p class="card-description">
+                        Identifier et renforcer les compétences clés pour progresser professionnellement et atteindre vos objectifs.
+                    </p>
+                </div>
+                <div class="coaching-card">
+                    <h3 class="card-title">Culture collaborative</h3>
+                    <p class="card-description">
+                        Créer un environnement de travail basé sur la collaboration et le soutien mutuel pour une performance collective optimale.
+                    </p>
+                </div>
+                <div class="coaching-card">
+                    <h3 class="card-title">Gestion du stress</h3>
+                    <p class="card-description">
+                        Techniques et approches pour mieux gérer le stress professionnel et maintenir un équilibre sain.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <div class="tag">Témoignages</div>
+                <h2 class="section-title">Ils nous font confiance</h2>
+                <p class="section-description">
+                    Découvrez les retours d'expérience de nos clients
+                </p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "Les ateliers d'Audrey ont transformé la dynamique de notre équipe. La communication est plus fluide et chacun se sent valorisé dans sa contribution."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">ML</div>
+                        <div class="author-info">
+                            <p class="author-name">Marie L.</p>
+                            <p class="author-title">Directrice des Ressources Humaines</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "Le coaching avec Audrey m'a permis de prendre conscience de mes forces et de développer ma confiance. J'aborde désormais mes responsabilités avec plus de sérénité."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">TD</div>
+                        <div class="author-info">
+                            <p class="author-name">Thomas D.</p>
+                            <p class="author-title">Chef de projet</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="tag">Contact</div>
+                <h2 class="section-title">Prenons rendez-vous !</h2>
+                <p class="section-description">
+                    Discutons de vos besoins et de comment je peux vous accompagner
+                </p>
+            </div>
+            <div class="contact-buttons">
+                <a href="mailto:audrey.rebout@laligne13.fr" class="btn primary-btn">
+                    <i class="fas fa-envelope"></i> audrey.rebout@laligne13.fr
+                </a>
+                <a href="https://www.linkedin.com/" target="_blank" class="btn secondary-btn">
+                    <i class="fab fa-linkedin"></i> Retrouvez-moi sur LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %}La Ligne 13 - Services{% endblock %}
+
+{% block content %}
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Nos Services</h1>
+            <p class="page-description">Des solutions adaptées pour favoriser l'épanouissement individuel et collectif</p>
+        </div>
+    </section>
+
+    <section class="services-content">
+        <div class="container">
+            <div class="service-detail">
+                <div class="service-image">
+                    <img src="{{ url_for('static', filename='images/placeholder.jpg') }}" alt="Communication">
+                </div>
+                <div class="service-info">
+                    <h2 class="section-title">Communication</h2>
+                    <p class="text-mauve">
+                        Développez une communication efficace et bienveillante au sein de vos équipes pour une meilleure collaboration et des résultats optimisés.
+                    </p>
+                    <ul class="service-list">
+                        <li>Techniques de communication assertive</li>
+                        <li>Gestion des conflits</li>
+                        <li>Communication non violente</li>
+                        <li>Écoute active</li>
+                    </ul>
+                    <a href="{{ url_for('contact') }}" class="btn primary-btn">En savoir plus</a>
+                </div>
+            </div>
+
+            <div class="service-detail reverse">
+                <div class="service-image">
+                    <img src="{{ url_for('static', filename='images/placeholder.jpg') }}" alt="Équilibre professionnel">
+                </div>
+                <div class="service-info">
+                    <h2 class="section-title">Équilibre professionnel</h2>
+                    <p class="text-mauve">
+                        Créez un environnement de travail où chacun peut s'épanouir et apporter sa contribution unique pour une performance collective améliorée.
+                    </p>
+                    <ul class="service-list">
+                        <li>Analyse des dynamiques d'équipe</li>
+                        <li>Valorisation des talents individuels</li>
+                        <li>Création d'espaces d'expression</li>
+                        <li>Équilibre vie professionnelle/vie personnelle</li>
+                    </ul>
+                    <a href="{{ url_for('contact') }}" class="btn primary-btn">En savoir plus</a>
+                </div>
+            </div>
+
+            <div class="service-detail">
+                <div class="service-image">
+                    <img src="{{ url_for('static', filename='images/placeholder.jpg') }}" alt="Leadership">
+                </div>
+                <div class="service-info">
+                    <h2 class="section-title">Leadership</h2>
+                    <p class="text-mauve">
+                        Développez les compétences de leadership à tous les niveaux de votre organisation pour une gestion plus efficace et inspirante.
+                    </p>
+                    <ul class="service-list">
+                        <li>Leadership authentique</li>
+                        <li>Gestion d'équipe</li>
+                        <li>Prise de décision</li>
+                        <li>Développement de la confiance</li>
+                    </ul>
+                    <a href="{{ url_for('contact') }}" class="btn primary-btn">En savoir plus</a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

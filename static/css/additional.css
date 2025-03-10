@@ -1,0 +1,418 @@
+/* Additional styles for inner pages */
+
+/* Page Header */
+.page-header {
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+
+.page-description {
+  font-size: 1.25rem;
+  color: var(--mauve);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* About Page */
+.about-content {
+  padding: 3rem 0;
+}
+
+.about-text {
+  color: var(--mauve);
+}
+
+.about-text p {
+  margin-bottom: 1.5rem;
+}
+
+.values {
+  padding: 3rem 0;
+  background-color: rgba(61, 18, 103, 0.3);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.value-card {
+  background-color: rgba(61, 18, 103, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(249, 168, 201, 0.1);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.value-icon {
+  background-color: rgba(249, 168, 201, 0.1);
+  color: var(--secondary);
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 1.25rem;
+}
+
+.value-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+
+.value-description {
+  color: var(--mauve);
+  font-size: 0.875rem;
+}
+
+/* Services Page */
+.services-content {
+  padding: 3rem 0;
+}
+
+.service-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+  align-items: center;
+}
+
+.service-detail.reverse {
+  direction: rtl;
+}
+
+.service-detail.reverse .service-info {
+  direction: ltr;
+}
+
+.service-image img {
+  border-radius: var(--radius);
+  border: 1px solid rgba(249, 168, 201, 0.2);
+}
+
+.service-info h2 {
+  margin-bottom: 1rem;
+}
+
+.service-list {
+  margin: 1.5rem 0;
+  color: var(--mauve);
+}
+
+.service-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.service-list li:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: var(--secondary);
+  border-radius: 50%;
+}
+
+/* Ateliers Page */
+.ateliers-content {
+  padding: 3rem 0;
+}
+
+.ateliers-intro {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.category {
+  margin-bottom: 3rem;
+}
+
+.ateliers-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.atelier-item {
+  background-color: rgba(61, 18, 103, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(249, 168, 201, 0.1);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.atelier-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+
+.atelier-description {
+  color: var(--mauve);
+  margin-bottom: 1rem;
+}
+
+.atelier-details {
+  display: flex;
+  gap: 1rem;
+  color: var(--secondary);
+  font-size: 0.875rem;
+}
+
+.ateliers-cta {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 2rem;
+  background-color: rgba(61, 18, 103, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(249, 168, 201, 0.1);
+  border-radius: var(--radius);
+}
+
+.ateliers-cta p {
+  margin-bottom: 1.5rem;
+}
+
+/* Coaching Page */
+.coaching-content {
+  padding: 3rem 0;
+}
+
+.coaching-intro {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.approaches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.approach-card {
+  background-color: rgba(61, 18, 103, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(249, 168, 201, 0.1);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.approach-icon {
+  background-color: rgba(249, 168, 201, 0.1);
+  color: var(--secondary);
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 1.25rem;
+}
+
+.approach-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+
+.approach-description {
+  color: var(--mauve);
+  font-size: 0.875rem;
+}
+
+.coaching-programs {
+  margin-top: 4rem;
+}
+
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.program-card {
+  background-color: rgba(61, 18, 103, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(249, 168, 201, 0.1);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.program-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+
+.program-description {
+  color: var(--mauve);
+  margin-bottom: 1rem;
+}
+
+.program-details {
+  color: var(--mauve);
+}
+
+.program-details li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.program-details li:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: var(--secondary);
+  border-radius: 50%;
+}
+
+.coaching-cta {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 2rem;
+  background-color: rgba(61, 18, 103, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(249, 168, 201, 0.1);
+  border-radius: var(--radius);
+}
+
+.coaching-cta p {
+  margin-bottom: 1.5rem;
+}
+
+/* Contact Page */
+.contact-content {
+  padding: 3rem 0;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.contact-methods {
+  margin-top: 2rem;
+}
+
+.contact-method {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.method-icon {
+  background-color: rgba(249, 168, 201, 0.1);
+  color: var(--secondary);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.method-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 0.25rem;
+}
+
+.method-value {
+  color: var(--mauve);
+}
+
+.method-value a {
+  color: var(--mauve);
+  text-decoration: underline;
+}
+
+.method-value a:hover {
+  color: var(--foreground);
+}
+
+.contact-form-container {
+  background-color: rgba(61, 18, 103, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(249, 168, 201, 0.1);
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--foreground);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: rgba(61, 18, 103, 0.7);
+  border: 1px solid rgba(249, 168, 201, 0.2);
+  border-radius: var(--radius);
+  color: var(--foreground);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--secondary);
+}
+
+/* Responsive Styles for Inner Pages */
+@media (max-width: 768px) {
+  .service-detail,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-detail.reverse {
+    direction: ltr;
+  }
+}
+

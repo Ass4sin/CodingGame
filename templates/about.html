@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block title %}La Ligne 13 - À propos{% endblock %}
+
+{% block content %}
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">À propos</h1>
+            <p class="page-description">Découvrez La Ligne 13 et notre approche du développement professionnel</p>
+        </div>
+    </section>
+
+    <section class="about-content">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2 class="section-title">Notre histoire</h2>
+                    <p class="text-mauve">
+                        Après 15 ans d'expérience dans un environnement professionnel exigeant, Audrey Rebout a fondé La Ligne 13 avec une vision claire : créer un espace où chacun peut développer son potentiel dans un cadre bienveillant et pragmatique.
+                    </p>
+                    <p class="text-mauve">
+                        Le nom "La Ligne 13" symbolise le chemin que nous parcourons tous dans notre développement professionnel. Chaque chemin commence par une ligne, et c'est en traçant cette ligne que nous définissons notre trajectoire.
+                    </p>
+                    <h2 class="section-title">Notre mission</h2>
+                    <p class="text-mauve">
+                        Chez La Ligne 13, nous croyons que chaque personne possède un potentiel unique qui ne demande qu'à s'exprimer. Notre mission est de créer les conditions favorables pour que chacun puisse développer ses talents et contribuer pleinement à la réussite collective.
+                    </p>
+                    <p class="text-mauve">
+                        Nous accompagnons les individus et les équipes dans leur développement professionnel, en proposant des approches pragmatiques et adaptées à chaque contexte.
+                    </p>
+                </div>
+                <div class="about-image">
+                    <div class="image-glow"></div>
+                    <img src="{{ url_for('static', filename='images/placeholder.jpg') }}" alt="Audrey Rebout - La Ligne 13">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="values">
+        <div class="container">
+            <h2 class="section-title text-center">Nos valeurs</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="value-title">Bienveillance</h3>
+                    <p class="value-description">
+                        Nous créons un espace sécurisant où chacun peut s'exprimer librement et être authentique.
+                    </p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="value-title">Pragmatisme</h3>
+                    <p class="value-description">
+                        Nous proposons des solutions concrètes et adaptées aux besoins spécifiques de chaque personne et organisation.
+                    </p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3 class="value-title">Équilibre</h3>
+                    <p class="value-description">
+                        Nous favorisons un environnement où chacun peut trouver sa place et contribuer selon ses talents.
+                    </p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="value-title">Collaboration</h3>
+                    <p class="value-description">
+                        Nous croyons en la force du collectif et en la richesse des échanges entre personnes aux profils variés.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

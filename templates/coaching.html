@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block title %}La Ligne 13 - Coaching{% endblock %}
+
+{% block content %}
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Coaching</h1>
+            <p class="page-description">Un accompagnement personnalisé pour atteindre vos objectifs professionnels</p>
+        </div>
+    </section>
+
+    <section class="coaching-content">
+        <div class="container">
+            <div class="coaching-intro">
+                <p class="text-mauve">
+                    Le coaching est un processus d'accompagnement personnalisé qui permet de révéler votre potentiel et de vous aider à atteindre vos objectifs professionnels. Chez La Ligne 13, nous proposons différentes formules de coaching adaptées à vos besoins.
+                </p>
+            </div>
+
+            <div class="coaching-approaches">
+                <h2 class="section-title">Notre approche</h2>
+                <div class="approaches-grid">
+                    <div class="approach-card">
+                        <div class="approach-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3 class="approach-title">Personnalisée</h3>
+                        <p class="approach-description">
+                            Chaque parcours de coaching est unique et adapté à vos besoins, vos objectifs et votre contexte professionnel.
+                        </p>
+                    </div>
+                    <div class="approach-card">
+                        <div class="approach-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3 class="approach-title">Orientée résultats</h3>
+                        <p class="approach-description">
+                            Nous définissons ensemble des objectifs clairs et mesurables pour vous permettre de constater vos progrès.
+                        </p>
+                    </div>
+                    <div class="approach-card">
+                        <div class="approach-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="approach-title">Confidentielle</h3>
+                        <p class="approach-description">
+                            Nos séances de coaching se déroulent dans un cadre de confidentialité absolue, vous permettant de vous exprimer librement.
+                        </p>
+                    </div>
+                    <div class="approach-card">
+                        <div class="approach-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3 class="approach-title">Bienveillante</h3>
+                        <p class="approach-description">
+                            Notre accompagnement est basé sur l'écoute, le respect et la bienveillance, créant un espace sécurisant pour votre développement.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="coaching-programs">
+                <h2 class="section-title">Nos programmes de coaching</h2>
+                <div class="programs-grid">
+                    <div class="program-card">
+                        <h3 class="program-title">Développement professionnel</h3>
+                        <p class="program-description">
+                            Accompagnement pour développer votre potentiel et affirmer votre place dans votre environnement professionnel.
+                        </p>
+                        <ul class="program-details">
+                            <li>6 à 10 séances</li>
+                            <li>Définition d'objectifs personnalisés</li>
+                            <li>Suivi entre les séances</li>
+                            <li>Bilan final</li>
+                        </ul>
+                    </div>
+                    <div class="program-card">
+                        <h3 class="program-title">Réussir sa prise de poste</h3>
+                        <p class="program-description">
+                            Stratégies et outils pour réussir les premiers mois dans un nouveau poste et établir votre légitimité.
+                        </p>
+                        <ul class="program-details">
+                            <li>4 à 8 séances</li>
+                            <li>Plan d'action personnalisé</li>
+                            <li>Outils d'analyse de situation</li>
+                            <li>Suivi régulier</li>
+                        </ul>
+                    </div>
+                    <div class="program-card">
+                        <h3 class="program-title">Flash Coaching</h3>
+                        <p class="program-description">
+                            Sessions courtes et ciblées pour résoudre une problématique spécifique ou préparer un événement important.
+                        </p>
+                        <ul class="program-details">
+                            <li>1 à 3 séances</li>
+                            <li>Focus sur un objectif précis</li>
+                            <li>Outils et techniques immédiatement applicables</li>
+                            <li>Suivi à distance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="coaching-cta">
+                <h2 class="section-title">Prêt à commencer votre parcours de coaching ?</h2>
+                <p class="text-mauve">
+                    Contactez-nous pour un premier entretien gratuit et sans engagement. Nous discuterons de vos besoins et objectifs pour déterminer ensemble le programme qui vous convient le mieux.
+                </p>
+                <a href="{{ url_for('contact') }}" class="btn primary-btn">Prenons rendez-vous</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

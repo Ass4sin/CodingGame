@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block title %}La Ligne 13 - Contact{% endblock %}
+
+{% block content %}
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Contact</h1>
+            <p class="page-description">Discutons de vos besoins et de comment je peux vous accompagner</p>
+        </div>
+    </section>
+
+    <section class="contact-content">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2 class="section-title">Prenons rendez-vous !</h2>
+                    <p class="text-mauve">
+                        Vous souhaitez en savoir plus sur mes services ou discuter d'un projet ? N'hésitez pas à me contacter par email ou via LinkedIn.
+                    </p>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="method-details">
+                                <h3 class="method-title">Email</h3>
+                                <p class="method-value">
+                                    <a href="mailto:audrey.rebout@laligne13.fr">audrey.rebout@laligne13.fr</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div class="method-details">
+                                <h3 class="method-title">LinkedIn</h3>
+                                <p class="method-value">
+                                    <a href="https://www.linkedin.com/" target="_blank">Retrouvez-moi sur LinkedIn</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="method-details">
+                                <h3 class="method-title">Adresse</h3>
+                                <p class="method-value">
+                                    Espace des Entrepreneurs<br>
+                                    4 rue des buisses<br>
+                                    59800 Lille
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <h2 class="section-title">Envoyez-moi un message</h2>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nom</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Sujet</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn primary-btn">Envoyer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

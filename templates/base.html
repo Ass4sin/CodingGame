@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}La Ligne 13{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="{{ url_for('home') }}">La Ligne 13</a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="{{ url_for('about') }}">À propos</a></li>
+                        <li><a href="{{ url_for('services') }}">Services</a></li>
+                        <li><a href="{{ url_for('ateliers') }}">Ateliers</a></li>
+                        <li><a href="{{ url_for('coaching') }}">Coaching</a></li>
+                        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                    </ul>
+                </nav>
+                <button class="btn primary-btn">Prenons rendez-vous</button>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>La Ligne 13</h3>
+                    <p>"Chaque chemin commence par une ligne !"</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <p>audrey.rebout@laligne13.fr</p>
+                    <p>Espace des Entrepreneurs, 4 rue des buisses 59800 Lille</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Informations légales</h3>
+                    <p>Bénéficiaire d'un CAPE jusqu'au 01/09/25 maximum</p>
+                    <p>Siret 418 541 553 000 32</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; {{ now.year }} La Ligne 13. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+
