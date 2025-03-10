@@ -1,0 +1,358 @@
+/* Styles spécifiques à la page Coaching */
+
+/* Page Header */
+.page-header {
+  padding: 4rem 0;
+  text-align: center;
+  background: linear-gradient(to bottom, rgba(51, 12, 89, 0.8), var(--background));
+  position: relative;
+  overflow: hidden;
+}
+
+.page-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--mauve), transparent);
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: 1rem;
+  text-shadow: 0 0 15px rgba(255, 235, 91, 0.3);
+}
+
+.page-description {
+  font-size: 1.35rem;
+  color: var(--mauve);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Coaching Content */
+.coaching-content {
+  padding: 5rem 0;
+}
+
+.coaching-intro {
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+.coaching-intro .text-mauve {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: var(--mauve);
+}
+
+/* Approaches Section */
+.coaching-approaches {
+  margin-bottom: 5rem;
+}
+
+.coaching-approaches .section-title {
+  font-size: 2.25rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--foreground);
+  position: relative;
+  display: inline-block;
+}
+
+.coaching-approaches .section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--foreground), var(--secondary));
+  border-radius: 1px;
+}
+
+.approaches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.approach-card {
+  background-color: rgba(61, 18, 103, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(249, 168, 201, 0.1);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  height: 100%;
+}
+
+.approach-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(249, 168, 201, 0.3);
+}
+
+.approach-icon {
+  background-color: rgba(249, 168, 201, 0.15);
+  color: var(--secondary);
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.approach-card:hover .approach-icon {
+  transform: scale(1.1);
+  background-color: rgba(249, 168, 201, 0.25);
+}
+
+.approach-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 1rem;
+}
+
+.approach-description {
+  color: var(--mauve);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Programs Section */
+.coaching-programs {
+  margin-bottom: 5rem;
+  position: relative;
+}
+
+.coaching-programs::before {
+  content: "";
+  position: absolute;
+  top: -2.5rem;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--mauve), transparent);
+}
+
+.coaching-programs .section-title {
+  font-size: 2.25rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--foreground);
+  position: relative;
+  display: inline-block;
+}
+
+.coaching-programs .section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--foreground), var(--secondary));
+  border-radius: 1px;
+}
+
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.program-card {
+  background-color: rgba(61, 18, 103, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(249, 168, 201, 0.1);
+  border-radius: var(--radius);
+  padding: 2rem;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.program-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, var(--foreground), var(--secondary));
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.program-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(249, 168, 201, 0.3);
+}
+
+.program-card:hover::before {
+  opacity: 1;
+}
+
+.program-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 1rem;
+}
+
+.program-description {
+  color: var(--mauve);
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.program-details {
+  color: var(--mauve);
+}
+
+.program-details li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+.program-details li:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: var(--secondary);
+  border-radius: 50%;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.program-details li:hover:before {
+  transform: scale(1.2);
+  background-color: var(--foreground);
+}
+
+/* CTA Section */
+.coaching-cta {
+  text-align: center;
+  padding: 3rem;
+  background-color: rgba(61, 18, 103, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(249, 168, 201, 0.1);
+  border-radius: var(--radius);
+  position: relative;
+  overflow: hidden;
+}
+
+.coaching-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(249, 168, 201, 0.1) 0%, transparent 70%);
+  opacity: 0.7;
+  transition: opacity 0.5s ease;
+}
+
+.coaching-cta:hover::before {
+  opacity: 1;
+}
+
+.coaching-cta .section-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.coaching-cta p {
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--mauve);
+  position: relative;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.coaching-cta .btn {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  position: relative;
+}
+
+.coaching-cta .btn:hover {
+  transform: translateY(-3px);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 2.25rem;
+  }
+
+  .page-description {
+    font-size: 1.1rem;
+  }
+
+  .coaching-intro .text-mauve {
+    font-size: 1.05rem;
+  }
+
+  .coaching-approaches .section-title,
+  .coaching-programs .section-title {
+    font-size: 1.75rem;
+  }
+
+  .approach-card,
+  .program-card {
+    padding: 1.5rem;
+  }
+
+  .approach-icon {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.25rem;
+  }
+
+  .approach-title,
+  .program-title {
+    font-size: 1.25rem;
+  }
+
+  .approach-description,
+  .program-description {
+    font-size: 0.95rem;
+  }
+
+  .coaching-cta {
+    padding: 2rem;
+  }
+
+  .coaching-cta .section-title {
+    font-size: 1.5rem;
+  }
+
+  .coaching-cta p {
+    font-size: 1rem;
+  }
+}
+

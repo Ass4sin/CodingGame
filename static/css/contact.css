@@ -1,0 +1,254 @@
+/* Styles spécifiques à la page Contact */
+
+/* Page Header */
+.page-header {
+  padding: 4rem 0;
+  text-align: center;
+  background: linear-gradient(to bottom, rgba(51, 12, 89, 0.8), var(--background));
+  position: relative;
+  overflow: hidden;
+}
+
+.page-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--secondary), transparent);
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: 1rem;
+  text-shadow: 0 0 15px rgba(255, 235, 91, 0.3);
+}
+
+.page-description {
+  font-size: 1.35rem;
+  color: var(--mauve);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Contact Content */
+.contact-content {
+  padding: 5rem 0;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.contact-info {
+  color: var(--mauve);
+}
+
+.contact-info .section-title {
+  font-size: 2.25rem;
+  margin-bottom: 1.5rem;
+  color: var(--foreground);
+}
+
+.contact-info .text-mauve {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.contact-methods {
+  margin-top: 2.5rem;
+}
+
+.contact-method {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.contact-method:hover {
+  transform: translateX(10px);
+}
+
+.method-icon {
+  background-color: rgba(249, 168, 201, 0.15);
+  color: var(--secondary);
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.25rem;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.contact-method:hover .method-icon {
+  transform: scale(1.1);
+  background-color: rgba(249, 168, 201, 0.25);
+}
+
+.method-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+
+.method-value {
+  color: var(--mauve);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.method-value a {
+  color: var(--mauve);
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.method-value a:hover {
+  color: var(--foreground);
+}
+
+/* Contact Form */
+.contact-form-container {
+  background-color: rgba(61, 18, 103, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(249, 168, 201, 0.1);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-form-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(249, 168, 201, 0.1) 0%, transparent 70%);
+  opacity: 0.7;
+}
+
+.contact-form-container .section-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--foreground);
+  position: relative;
+}
+
+.form-group {
+  margin-bottom: 1.75rem;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.75rem;
+  color: var(--foreground);
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 1rem;
+  background-color: rgba(61, 18, 103, 0.7);
+  border: 1px solid rgba(249, 168, 201, 0.2);
+  border-radius: var(--radius);
+  color: var(--foreground);
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(249, 168, 201, 0.2);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form .btn {
+  padding: 0.75rem 2.5rem;
+  font-size: 1.05rem;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  margin-top: 1rem;
+}
+
+.contact-form .btn:hover {
+  transform: translateY(-3px);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .contact-grid {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-title {
+    font-size: 2.25rem;
+  }
+
+  .page-description {
+    font-size: 1.1rem;
+  }
+
+  .contact-info .section-title,
+  .contact-form-container .section-title {
+    font-size: 1.75rem;
+  }
+
+  .contact-info .text-mauve {
+    font-size: 1rem;
+  }
+
+  .method-icon {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.1rem;
+  }
+
+  .method-title {
+    font-size: 1.1rem;
+  }
+
+  .method-value {
+    font-size: 0.95rem;
+  }
+
+  .contact-form-container {
+    padding: 1.75rem;
+  }
+
+  .form-group label {
+    font-size: 0.95rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 0.75rem;
+    font-size: 0.95rem;
+  }
+}
+
