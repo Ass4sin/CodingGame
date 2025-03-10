@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-from flask_login import  LoginManager, login_user
+from flask_login import  LoginManager, logout_user, login_user, current_user, login_required
 from flask_bcrypt import Bcrypt
 
 app = Flask(__name__)
@@ -18,6 +18,9 @@ class User(db.Model):
     password = db.Column(db.String(255), nullable=False)
     email = db.Column(db.String(255), nullable=False, unique=True)
     role = db.Column(db.String(255), nullable=False)
+
+    def get_id(self):
+        return self.id
 
 with app.app_context():
     db.create_all()
@@ -83,9 +86,21 @@ def signup_check():
     else:
         return "Passwords dont match", 400
 
-@app.route('/login')
-def login():
-    return render_template('login.html')
+@app.route('/login/<uid>')
+def login(uid):
+    user = User.query.get(uid)
+    login_user(user)
+    return 'Success'
+
+@app.route('/logout')
+def logout():
+   logout_user()
+   return 'Success'
+
+@app.route('/test')
+def test():
+    if current_user.is_authenticated:
+        return f'{current_user.username}'
 
 if __name__ == '__main__':
     app.run(debug=True)
