@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-from flask_login import  LoginManager, logout_user, login_user, current_user, login_required
+from flask_login import LoginManager, logout_user, login_user, current_user, login_required, UserMixin
 from flask_bcrypt import Bcrypt
 
 app = Flask(__name__)
@@ -12,20 +12,23 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-class User(db.Model):
+class User(db.Model,UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False, unique=True)
     password = db.Column(db.String(255), nullable=False)
     email = db.Column(db.String(255), nullable=False, unique=True)
     role = db.Column(db.String(255), nullable=False)
 
+    def __repr__(self):
+        return f'<User {self.name}, Role: {self.role}>'
+
     def get_id(self):
         return self.id
 
 with app.app_context():
     db.create_all()
-    login_manager = LoginManager()
-    login_manager.init_app(app)
+    login_manager = LoginManager(app)
+    app.secret_key= 'key'
 
 @login_manager.user_loader
 def load_users(uid):
@@ -85,8 +88,20 @@ def signup_check():
                 return "An error occurred", 500
     else:
         return "Passwords dont match", 400
-
-@app.route('/login/<uid>')
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'GET':
+        return render_template('login.html')
+    elif request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        hashed_password = bcrypt.generate_password_hash(password)
+        user =  User.query.filter(User.name == username).first()
+        if user and bcrypt.check_password_hash(user.password, password):
+            login_user(user)
+            return redirect('/')
+        else:
+            return 'Failed'
 def login(uid):
     user = User.query.get(uid)
     login_user(user)
@@ -100,7 +115,7 @@ def logout():
 @app.route('/test')
 def test():
     if current_user.is_authenticated:
-        return f'{current_user.username}'
+        return str(current_user.name)
 
 if __name__ == '__main__':
     app.run(debug=True)
