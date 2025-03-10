@@ -50,8 +50,8 @@ def ateliers():
     return render_template('ateliers.html')
 
 @app.route('/coaching')
-def coaching():
-    return render_template('coaching.html')
+def coaching_details():
+    return render_template('coaching_details.html')
 
 @app.route('/contact')
 def contact():
