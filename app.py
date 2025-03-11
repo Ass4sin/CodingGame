@@ -137,11 +137,12 @@ def blog_list():
     blogs = db.session.execute(db.select(Blog))
     return render_template("blog_list.html", blogs=blogs)
 
-@app.route('/blogd/<blog_id>', methods=['POST', 'GET'])
+@app.route('/blogs/<blog_id>', methods=['POST', 'GET'])
 def blog_details(blog_id):
     if request.method == 'GET':
         blogs = db.session.execute(db.select(Blog).filter_by(id=blog_id))
-        blog= db.session.execute(db.select(Blog))
+        comments = db.session.execute(db.select(Comment))
+        return render_template("blog_list.html", blogs=blogs, comments=comments)
     elif request.method == 'POST':
         content = request.form.get('content')
         with app.app_context():
@@ -154,9 +155,26 @@ def blog_details(blog_id):
                 print(f"Error: {e}")
                 return "An error occurred", 500
 
+@app.route('/blogs/form', methods=['POST', 'GET'])
+def blog_form():
+    if request.method == 'GET':
+        return render_template("blog_form.html")
+    elif request.method == 'POST':
+        title = request.form.get('title')
+        content = request.form.get('content')
+        with app.app_context():
+            new_blog = Blog(title=title, content=content)
+            db.session.add(new_blog)
+            try:
+                db.session.commit()
+            except Exception as e:
+                db.session.rollback()
+                print(f"Error: {e}")
+                return "An error occurred", 500
+            return redirect('/blogs')
 
 
-    return render_template("blog.html", blog=blog)
+
 
 
 
