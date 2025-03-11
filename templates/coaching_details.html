@@ -85,8 +85,8 @@
 <style>
     /* Optional styling for the payment button */
     .payment-button {
-        background-color: #007bff;
-        color: white;
+        background-color: var(--foreground);
+        color: var(--background);
         padding: 10px 20px;
         border: none;
         border-radius: 5px;
@@ -96,7 +96,9 @@
     }
 
     .payment-button:hover {
-        background-color: #0056b3;
+        background-color: var(--foreground);
+        opacity: 0.9;
+        color: var(--background);
     }
 </style>
 {% endblock %}

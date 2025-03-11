@@ -1,0 +1,230 @@
+/* Variables globales */
+:root {
+    --background: #1a0533;
+    --foreground: #f9a8c9;
+    --mauve: #d8c0f0;
+    --secondary: #ffeb5b;
+    --radius: 8px;
+  }
+  
+  /* Styles de base */
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background);
+    color: var(--mauve);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+  }
+  
+  /* Conteneurs */
+  .blog-container,
+  .form-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: rgba(61, 18, 103, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(249, 168, 201, 0.1);
+    border-radius: var(--radius);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .blog-container::before,
+  .form-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--foreground), var(--secondary));
+    opacity: 0.7;
+  }
+  
+  /* Titres */
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--foreground);
+    margin-bottom: 2rem;
+    text-align: center;
+    text-shadow: 0 0 15px rgba(255, 235, 91, 0.3);
+    position: relative;
+  }
+  
+  h1::after {
+    content: "";
+    position: absolute;
+    bottom: -0.5rem;
+    left: 25%;
+    right: 25%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--mauve), transparent);
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+    color: var(--foreground);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Articles de blog */
+  .blog-post {
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    background-color: rgba(61, 18, 103, 0.3);
+    border: 1px solid rgba(249, 168, 201, 0.1);
+    border-radius: var(--radius);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    position: relative;
+  }
+  
+  .blog-post:hover {
+    transform: translateY(-5px);
+    border-color: rgba(249, 168, 201, 0.3);
+  }
+  
+  .blog-title {
+    font-size: 1.5rem;
+    color: var(--foreground);
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .blog-content {
+    color: var(--mauve);
+    line-height: 1.7;
+  }
+  
+  /* Section commentaires */
+  .comments-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(249, 168, 201, 0.2);
+  }
+  
+  .comment {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: rgba(61, 18, 103, 0.3);
+    border-radius: var(--radius);
+    border-left: 3px solid var(--foreground);
+  }
+  
+  .comment strong {
+    color: var(--secondary);
+  }
+  
+  /* Formulaire de commentaire */
+  .comment-form {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(249, 168, 201, 0.2);
+  }
+  
+  /* Formulaires */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  label {
+    font-size: 1.1rem;
+    color: var(--foreground);
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: rgba(26, 5, 51, 0.7);
+    border: 1px solid rgba(249, 168, 201, 0.2);
+    border-radius: var(--radius);
+    color: var(--mauve);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--foreground);
+    box-shadow: 0 0 0 2px rgba(249, 168, 201, 0.2);
+  }
+  
+  button {
+    padding: 0.8rem 2rem;
+    background: linear-gradient(to right, var(--foreground), var(--secondary));
+    border: none;
+    border-radius: var(--radius);
+    color: var(--background);
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    align-self: flex-end;
+  }
+  
+  button:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+  }
+  
+  /* Message d'absence de contenu */
+  .blog-container > p {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--mauve);
+    padding: 2rem;
+    background-color: rgba(61, 18, 103, 0.3);
+    border-radius: var(--radius);
+    border: 1px dashed rgba(249, 168, 201, 0.2);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .blog-container,
+    .form-container {
+      padding: 1.5rem;
+      margin: 1rem;
+    }
+  
+    h1 {
+      font-size: 2rem;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  
+    .blog-title {
+      font-size: 1.3rem;
+    }
+  
+    button {
+      padding: 0.7rem 1.5rem;
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 1.8rem;
+    }
+  
+    .blog-post {
+      padding: 1rem;
+    }
+  
+    .comment {
+      padding: 0.8rem;
+    }
+  
+    input, textarea {
+      padding: 0.7rem;
+    }
+  }

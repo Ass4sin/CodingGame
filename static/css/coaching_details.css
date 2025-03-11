@@ -13,7 +13,6 @@ margin-bottom: 2rem;
 }
 
 .coaching-content {
-padding: 4rem 0;
 background-color: var(--background);
 }
 
@@ -93,6 +92,7 @@ background-color: rgba(228, 201, 229, 0.1);
 border-radius: var(--radius);
 padding: 3rem;
 margin-top: 4rem;
+margin-bottom: 4rem;
 }
 
 .quote-content {
