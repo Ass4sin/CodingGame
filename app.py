@@ -57,6 +57,10 @@ def coaching_details():
 def contact():
     return render_template('contact.html')
 
+@app.route('/calendar')
+def calendar():
+    return render_template('calendar.html')
+
 @app.route('/signup')
 def signup():
     return render_template('signup.html')

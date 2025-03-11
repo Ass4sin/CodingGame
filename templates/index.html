@@ -23,10 +23,13 @@
                     </p>
                     <div class="hero-buttons">
                         <a href="{{ url_for('contact') }}" class="btn primary-btn">
-                            Prenons rendez-vous <i class="fas fa-arrow-right"></i>
+                            Contactez-moi <i class="fas fa-arrow-right"></i>
                         </a>
                         <a href="{{ url_for('about') }}" class="btn secondary-btn">
                             En savoir plus
+                        </a>
+                        <a href="{{ url_for('calendar') }}" class="btn calendar-btn">
+                            <i class="fas fa-calendar-alt"></i> Ajouter un rendez-vous au calendrier
                         </a>
                     </div>
                 </div>
@@ -289,8 +292,10 @@
                 <a href="https://www.linkedin.com/" target="_blank" class="btn secondary-btn">
                     <i class="fab fa-linkedin"></i> Retrouvez-moi sur LinkedIn
                 </a>
+                <a href="{{ url_for('calendar') }}" class="btn calendar-btn">
+                    <i class="fas fa-calendar-alt"></i> Prendre rendez-vous
+                </a>
             </div>
         </div>
     </section>
 {% endblock %}
-
