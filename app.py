@@ -135,6 +135,7 @@ def logout():
 @app.route('/blogs')
 def blog_list():
     blogs = db.session.execute(db.select(Blog))
+    print(blogs)
     return render_template("blog_list.html", blogs=blogs)
 
 @app.route('/blogs/<blog_id>', methods=['POST', 'GET'])
