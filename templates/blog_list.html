@@ -10,10 +10,12 @@
     <div class="blog-container">
         <h1>Liste des Blogs</h1>
         {% for blog in blogs %}
-            <div class="blog-post">
+            <a href="blogs/{{ blog.id }}" style="all: unset">
+            <div class="blog-post" style="cursor: pointer">
                 <h2 class="blog-title">{{ blog.title }}</h2>
                 <p class="blog-content">{{ blog.content }}</p>
             </div>
+            </a>
         {% else %}
             <p>Aucun article de blog disponible.</p>
         {% endfor %}

@@ -19,24 +19,30 @@
             <p>Aucun article trouvé</p>
         {% endif %}
 
-        <div class="comments-section">
-            <h2>Commentaires</h2>
-            {% for comment in comments %}
-                <div class="comment">
-                    <strong>{{ comment.author }}</strong> : {{ comment.content }}
-                </div>
-            {% else %}
-                <p>Aucun commentaire pour le moment, Majesté.</p>
-            {% endfor %}
-        </div>
-
-        <div class="comment-form">
-            <h2>Ajouter un Commentaire</h2>
-            <form action="" method="POST">
-                <textarea name="content" rows="4" placeholder="" required></textarea>
-                <button type="submit">Envoyer</button>
-            </form>
-        </div>
+            <div class="comments-section">
+        <h2>Commentaires</h2>
+        {% for comment in comments %}
+            <div class="comment">
+                <strong>{{ comment.author }}</strong> : {{ comment.content }}
+            </div>
+        {% else %}
+            <p>Aucun commentaire pour le moment, Majesté.</p>
+        {% endfor %}
     </div>
+
+    <div class="comment-form">
+        <h2>Ajouter un Commentaire</h2>
+        <form action="" method="POST">
+            <textarea name="content" rows="4" placeholder="" required></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
+    </div>
+
+    <!-- Nouveau bouton pour éditer le blog -->
+    <div class="edit-button">
+        <a href="/blogs/edit4" class="btn">Éditer le blog</a>
+    </div>
+</div>
+
 </body>
 </html>
