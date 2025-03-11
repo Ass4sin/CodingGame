@@ -68,19 +68,19 @@
         </div>
     </section>
 
-    <script src="https://js.stripe.com/v3/"></script>
+
+
+    <!-- Load Stripe.js -->
+<script src="https://js.stripe.com/v3/"></script>
+
 <script>
     // Initialize Stripe with your publishable key
-    const stripe = Stripe('pk_test_51R19DkFJZexf1WYpWiAu84FBw09V2fJFZyLInfOEdxmTJNTUd5KWNQr0ayzrJIUaxQR2c5zt56taKp7BlFYpOb8t00WE1yHyUz'); // Replace with your actual Stripe publishable key
 
-    // Add an event listener to the payment button
     document.getElementById('checkout-button').addEventListener('click', () => {
-        fetch('/create-checkout-session', { method: 'POST' })
-            .then(response => response.json())
-            .then(data => stripe.redirectToCheckout({ sessionId: data.id }))
-            .catch(error => console.error('Error:', error));
-    });
+        alert("A venir");
+    })
 </script>
+
 
 <style>
     /* Optional styling for the payment button */

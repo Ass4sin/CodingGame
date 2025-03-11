@@ -8,6 +8,7 @@ import os
 
 app = Flask(__name__)
 bcrypt = Bcrypt(app)
+stripe.api_key = os.getenv('STRIPE_API_KEY')
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root@localhost/coding_game'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -131,7 +132,7 @@ def login():
 @app.route('/logout')
 def logout():
    logout_user()
-   return redirect(url_for('home'))
+   return redirect('/')
 
 
 @app.route('/blogs')
@@ -140,7 +141,7 @@ def blog_list():
     print(blogs)
     return render_template("blog_list.html", blogs=blogs)
 
-@app.route('/blogs/<blog_id>', methods=['POST', 'GET'])
+@app.route('/blogs/<int:blog_id>', methods=['POST', 'GET'])
 def blog_details(blog_id):
     if request.method == 'GET':
         blogs = db.session.execute(db.select(Blog).filter(Blog.id == blog_id)).scalars()
@@ -159,29 +160,6 @@ def blog_details(blog_id):
                 return "An error occurred", 500
             return  redirect(f'/blogs/{blog_id}')
 
-@app.route('/blogs/form', methods=['POST', 'GET'])
-def blog_form():
-    if request.method == 'GET':
-        return render_template("blog_form.html")
-    elif request.method == 'POST':
-        title = request.form.get('title')
-        content = request.form.get('content')
-        with app.app_context():
-            new_blog = Blog(title=title, content=content)
-            db.session.add(new_blog)
-            try:
-                db.session.commit()
-            except Exception as e:
-                db.session.rollback()
-                print(f"Error: {e}")
-                return "An error occurred", 500
-            return redirect('/blogs')
-
-
-
-
-
-
 @app.route('/create-checkout-session', methods=['POST'])
 def create_checkout_session():
     try:
@@ -193,17 +171,93 @@ def create_checkout_session():
                     'product_data': {
                         'name': 'Coaching de leadership féminin',
                     },
-                    'unit_amount': 1,  # Amount in cents (200 EUR)
+                    'unit_amount': 20000,  # Amount in cents (200 EUR)
                 },
                 'quantity': 1,
             }],
             mode='payment',
-            success_url='http://yourwebsite.com/success',
-            cancel_url='http://yourwebsite.com/cancel',
+            success_url='http://localhost:5000/success',
+            cancel_url='http://localhost:5000/cancel',
         )
         return jsonify({'id': session.id})
     except Exception as e:
-        return jsonify(error=str(e)), 403
+        print(f"Stripe error: {e}")
+        return jsonify(error=str(e)), 400
+
+
+@app.route('/blogs/form', methods=['POST', 'GET'])
+def blog_form():
+    if  current_user.is_authenticated == False or  current_user.role != 'admin':
+        return redirect('/')
+    if request.method == 'GET':
+
+        return render_template("blog_form.html")
+
+    elif request.method == 'POST':
+
+        title = request.form.get('title')
+
+        content = request.form.get('content')
+
+        with app.app_context():
+
+            new_blog = Blog(title=title, content=content)
+
+            db.session.add(new_blog)
+
+            try:
+
+                db.session.commit()
+
+            except Exception as e:
+
+                db.session.rollback()
+
+                print(f"Error: {e}")
+
+                return "An error occurred", 500
+
+            return redirect('/blogs')
+
+
+@app.route('/blogs/edit/<int:blog_id>', methods=['GET', 'POST'])
+def update_blog(blog_id):
+    if not current_user.is_authenticated or current_user.role != 'admin':
+        return redirect('/')
+
+    # Récupérer le blog depuis la base de données
+    blog = Blog.query.get(blog_id)
+
+    if not blog:
+        return "Blog non trouvé", 404
+
+    if request.method == 'GET':
+        return render_template("blog_edit.html", blog=blog)
+
+    elif request.method == 'POST':
+        title = request.form.get('title')
+        content = request.form.get('content')
+
+        if title:
+            blog.title = title
+        if content:
+            blog.content = content
+
+        try:
+            db.session.commit()  # Pas besoin d'ajouter à la session, SQLAlchemy le détecte automatiquement
+            return redirect(url_for('blog_details', blog_id=blog_id))  # Correction ici
+        except Exception as e:
+            db.session.rollback()
+            print(f"Erreur : {e}")
+            return "Une erreur est survenue", 500
+        return redirect('/')
+
+
+
+
+
+
+
 
 @app.route('/account')
 @login_required

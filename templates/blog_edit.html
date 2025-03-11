@@ -42,15 +42,15 @@
 </head>
 <body>
     <div class="form-container">
-        <h1>Créer un Blog</h1>
-        <form action="/blogs/form" method="POST">
+        <h1> Modifier un Blog</h1>
+        <form action="/blogs/edit/{{ blog.id }}" method="POST">
             <label for="title">Titre :</label>
-            <input type="text" id="title" name="title" required>
+            <textarea id="title" name="title" required>{{ blog.title }}</textarea>
 
             <label for="content">Contenu :</label>
-            <textarea id="content" name="content"  required></textarea>
+            <textarea id="content" name="content"  required>{{ blog.content }}</textarea>
 
-            <button type="submit">Publier</button>
+            <button type="submit">Modifier</button>
         </form>
     </div>
 </body>
