@@ -5,26 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des Blogs</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            padding: 20px;
-        }
-        .blog-container {
-            max-width: 800px;
-            margin: auto;
-        }
-        .blog-post {
-            border-bottom: 1px solid #ddd;
-            padding: 10px 0;
-        }
-        .blog-title {
-            font-size: 1.5em;
-            color: #333;
-        }
-        .blog-content {
-            color: #666;
-        }
+        /* Styles pour la page Liste des Blogs */
+.blog-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: var(--card);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--foreground);
+    margin-bottom: 1rem;
+}
+
+.blog-post {
+    padding: 1rem;
+    border-bottom: 1px solid var(--muted);
+    transition: background-color 0.3s ease;
+}
+
+.blog-post:hover {
+    background-color: rgba(249, 168, 201, 0.1);
+}
+
+.blog-title {
+    font-size: 1.5rem;
+    color: var(--foreground);
+    margin-bottom: 0.5rem;
+}
+
+.blog-content {
+    color: var(--mauve);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+p {
+    color: var(--mauve);
+}
+
+@media (max-width: 768px) {
+    .blog-container {
+        padding: 1rem;
+    }
+    
+    .blog-title {
+        font-size: 1.25rem;
+    }
+}
     </style>
 </head>
 <body>
