@@ -13,17 +13,21 @@
     <input type="text" id="name" name="name" required>
     <label for="date">Date:</label>
     <input type="date" id="date" name="date" required>
+     <label for="time">Time:</label>
+        <input type="time" id="time" name="time" required><br><br>
     <button type="submit">Submit</button>
 </form>
 <table border="1">
         <tr>
             <th>Name</th>
             <th>Date</th>
+            <th>Time</th>
         </tr>
         {% for appointment in appointments %}
         <tr>
             <td>{{ appointment.name }}</td>
-            <td>{{ appointment.date }}</td>
+            <td>{{ appointment.date_time.strftime('%Y-%m-%d') }}</td>
+            <td>{{ appointment.date_time.strftime('%H:%M') }}</td>
         </tr>
         {% endfor %}
     </table>

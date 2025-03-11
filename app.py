@@ -27,6 +27,23 @@ class User(db.Model,UserMixin):
     def get_id(self):
         return self.id
 
+class Blog(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(255), nullable=False)
+    content = db.Column(db.Text, nullable=False)
+
+class Comment(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    author = db.Column(db.String(255), nullable=False)
+    content = db.Column(db.Text, nullable=False)
+    blog_id = db.Column(db.Integer, db.ForeignKey('blog.id'), nullable=False)
+
+class Appointment(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(255), nullable=False)
+    date_time = db.Column(db.DateTime, nullable=False)
+
+
 with app.app_context():
     db.create_all()
     login_manager = LoginManager(app)
@@ -118,10 +135,33 @@ def logout():
    logout_user()
    return 'Success'
 
-@app.route('/test')
-def test():
-    if current_user.is_authenticated:
-        return str(current_user.name)
+
+@app.route('/blogs')
+def blog_list():
+    blogs = db.session.execute(db.select(Blog))
+    return render_template("blog_list.html", blogs=blogs)
+
+@app.route('/blogd/<blog_id>', methods=['POST', 'GET'])
+def blog_details(blog_id):
+    if request.method == 'GET':
+        blogs = db.session.execute(db.select(Blog).filter_by(id=blog_id))
+        blog= db.session.execute(db.select(Blog))
+    elif request.method == 'POST':
+        content = request.form.get('content')
+        with app.app_context():
+            new_comment = Comment(author=current_user.name, content=content, blog_id=blog_id)
+            db.session.add(new_comment)
+            try:
+                db.session.commit()
+            except Exception as e:
+                db.session.rollback()
+                print(f"Error: {e}")
+                return "An error occurred", 500
+
+
+
+    return render_template("blog.html", blog=blog)
+
 
 
 @app.route('/create-checkout-session', methods=['POST'])
@@ -147,6 +187,28 @@ def create_checkout_session():
     except Exception as e:
         return jsonify(error=str(e)), 403
 
+
+@app.route('/test')
+def test():
+    return render_template("test.html")
+
+
+
+
+@app.route('/test-date', methods=["POST"])
+def test_date():
+    if request.method == 'POST':
+        name = request.form['name']
+        date = request.form['date']
+        time = request.form['time']
+        date_time_str = f"{date} {time}"
+        date_time_obj = datetime.strptime(date_time_str, '%Y-%m-%d %H:%M')
+        new_appointment = Appointment(name=name, date_time=date_time_obj)
+        db.session.add(new_appointment)
+        db.session.commit()
+        return redirect('/test')
+    appointments = Appointment.query.all()
+    return render_template('index.html', appointments=appointments)
 
 if __name__ == '__main__':
     app.run(debug=True)
