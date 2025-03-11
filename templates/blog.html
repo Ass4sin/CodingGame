@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liste des Blogs</title>
+    <title>Détails du Blog</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,23 +19,70 @@
             padding: 10px 0;
         }
         .blog-title {
-            font-size: 1.5em;
+            font-size: 1.8em;
             color: #333;
         }
         .blog-content {
             color: #666;
         }
+        .comments-section {
+            margin-top: 20px;
+        }
+        .comment {
+            border-top: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        .comment-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .comment-form button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .comment-form button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
     <div class="blog-container">
-            <div class="blog-post">
-                <h2 class="blog-title">{{ blog.title }}</h2>
-                <p class="blog-content">{{ blog.content }}</p>
-            </div>
+        {% if blogs %}
+            {% for blog in blogs %}
+                <div class="blog-post">
+                    <h2 class="blog-title">{{ blog.title }}</h2>
+                    <p class="blog-content">{{ blog.content }}</p>
+                </div>
+            {% endfor %}
         {% else %}
-            <p>Cet article n'éxiste pas.</p>
-        {% endfor %}
+            <p>Aucun article trouvé</p>
+        {% endif %}
+
+        <div class="comments-section">
+            <h2>Commentaires</h2>
+            {% for comment in comments %}
+                <div class="comment">
+                    <strong>{{ comment.author }}</strong> : {{ comment.content }}
+                </div>
+            {% else %}
+                <p>Aucun commentaire pour le moment, Majesté.</p>
+            {% endfor %}
+        </div>
+
+        <div class="comment-form">
+            <h2>Ajouter un Commentaire</h2>
+            <form action="" method="POST">
+                <textarea name="content" rows="4" placeholder="à modifier" required></textarea>
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>

@@ -25,8 +25,8 @@
                         <li><a href="{{ url_for('contact') }}">Contact</a></li>
                     </ul>
                 </nav>
-                <a href="{{ url_for('home') }}" class="btn primary-btn" style="margin-left: 100px;">Blog</a>
-                
+                <a href="/blogs" class="btn primary-btn" style="margin-left: 100px;">Blog</a>
+
                 {% if current_user.is_authenticated %}
                     <a href="{{ url_for('account') }}" class="profile-icon" style="margin-right: 100px;">
                         <i class="fas fa-user-circle fa-2x" style="color: #f9a8c9;"></i>
@@ -34,7 +34,7 @@
                 {% else %}
                     <a href="{{ url_for('login') }}" class="btn primary-btn" style="background-color: #f9a8c9; margin-right: 100px;">Connexion</a>
                 {% endif %}
-                
+
                 <button class="mobile-menu-btn">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -78,3 +78,4 @@
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
+
