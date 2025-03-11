@@ -1,8 +1,10 @@
-from flask import Flask, render_template, request, redirect
+import stripe
+from flask import Flask, render_template, request, redirect, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from flask_login import LoginManager, logout_user, login_user, current_user, login_required, UserMixin
 from flask_bcrypt import Bcrypt
+import os
 
 app = Flask(__name__)
 bcrypt = Bcrypt(app)
@@ -33,6 +35,10 @@ with app.app_context():
 @login_manager.user_loader
 def load_users(uid):
     return User.query.get(uid)
+
+@login_manager.unauthorized_handler
+def unauthorized_callback():
+    return redirect('/')
 
 # Context processor to add current year to all templates
 @app.context_processor
@@ -88,7 +94,7 @@ def signup_check():
                 return "An error occurred", 500
     else:
         return "Passwords dont match", 400
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login', methods=['POST', 'GET'])
 def login():
     if request.method == 'GET':
         return render_template('login.html')
@@ -100,12 +106,8 @@ def login():
         if user and bcrypt.check_password_hash(user.password, password):
             login_user(user)
             return redirect('/')
-        else:
-            return 'Failed'
-def login(uid):
-    user = User.query.get(uid)
-    login_user(user)
-    return 'Success'
+
+
 
 @app.route('/logout')
 def logout():
@@ -116,6 +118,31 @@ def logout():
 def test():
     if current_user.is_authenticated:
         return str(current_user.name)
+
+
+@app.route('/create-checkout-session', methods=['POST'])
+def create_checkout_session():
+    try:
+        session = stripe.checkout.Session.create(
+            payment_method_types=['card'],
+            line_items=[{
+                'price_data': {
+                    'currency': 'eur',
+                    'product_data': {
+                        'name': 'Coaching de leadership féminin',
+                    },
+                    'unit_amount': 1,  # Amount in cents (200 EUR)
+                },
+                'quantity': 1,
+            }],
+            mode='payment',
+            success_url='http://yourwebsite.com/success',
+            cancel_url='http://yourwebsite.com/cancel',
+        )
+        return jsonify({'id': session.id})
+    except Exception as e:
+        return jsonify(error=str(e)), 403
+
 
 if __name__ == '__main__':
     app.run(debug=True)

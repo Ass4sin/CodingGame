@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+;{% extends 'base.html' %}
 
 {% block title %}La Ligne 13 - Coaching{% endblock %}
 
@@ -30,6 +30,9 @@
                             <li>Réussir sa prise de poste</li>
                             <li>Prendre confiance</li>
                         </ul>
+
+                        <!-- Payment Button -->
+                        <button id="checkout-button" class="payment-button">Acheter maintenant</button>
                     </div>
                 </div>
 
@@ -64,5 +67,37 @@
             </div>
         </div>
     </section>
+
+    <script src="https://js.stripe.com/v3/"></script>
+<script>
+    // Initialize Stripe with your publishable key
+    const stripe = Stripe('pk_test_51R19DkFJZexf1WYpWiAu84FBw09V2fJFZyLInfOEdxmTJNTUd5KWNQr0ayzrJIUaxQR2c5zt56taKp7BlFYpOb8t00WE1yHyUz'); // Replace with your actual Stripe publishable key
+
+    // Add an event listener to the payment button
+    document.getElementById('checkout-button').addEventListener('click', () => {
+        fetch('/create-checkout-session', { method: 'POST' })
+            .then(response => response.json())
+            .then(data => stripe.redirectToCheckout({ sessionId: data.id }))
+            .catch(error => console.error('Error:', error));
+    });
+</script>
+
+<style>
+    /* Optional styling for the payment button */
+    .payment-button {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 20px;
+    }
+
+    .payment-button:hover {
+        background-color: #0056b3;
+    }
+</style>
 {% endblock %}
 
