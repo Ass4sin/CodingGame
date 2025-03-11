@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block title %}La Ligne 13 - Prendre rendez-vous{% endblock %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/calendar.css') }}">
+{% endblock %}
+
+{% block content %}
+    <!-- Calendar Header Section -->
+    <section class="calendar-header">
+        <div class="container">
+            <div class="section-header">
+                <div class="tag">Rendez-vous</div>
+                <h1 class="section-title">Planifiez votre rendez-vous</h1>
+                <p class="section-description">
+                    Choisissez une date et une heure qui vous conviennent pour notre rencontre
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendar Section -->
+    <section class="calendar-section">
+        <div class="container">
+            <div class="calendar-container">
+                <div class="calendar-navigation">
+                    <button id="prev-month" class="nav-btn"><i class="fas fa-chevron-left"></i></button>
+                    <h2 id="current-month-year">Janvier 2023</h2>
+                    <button id="next-month" class="nav-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                
+                <div class="calendar-canvas-container">
+                    <canvas id="calendar-canvas"></canvas>
+                </div>
+            </div>
+
+            <div class="time-slots-container" id="time-slots-container">
+                <h3 id="selected-date-display">Sélectionnez une date</h3>
+                <div class="time-slots-canvas-container">
+                    <canvas id="time-slots-canvas"></canvas>
+                </div>
+            </div>
+
+            <div class="appointment-form-container" id="appointment-form-container">
+                <h3>Détails du rendez-vous</h3>
+                <form id="appointment-form" class="appointment-form">
+                    <div class="form-group">
+                        <label for="name">Nom complet</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Téléphone</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Sujet du rendez-vous</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Sélectionnez un sujet</option>
+                            <option value="coaching-individuel">Coaching individuel</option>
+                            <option value="coaching-equipe">Coaching d'équipe</option>
+                            <option value="atelier">Atelier collaboratif</option>
+                            <option value="formation">Formation</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message (optionnel)</label>
+                        <textarea id="message" name="message" rows="4"></textarea>
+                    </div>
+                    <div class="form-summary">
+                        <p>Date: <span id="summary-date">--</span></p>
+                        <p>Heure: <span id="summary-time">--</span></p>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" id="back-to-calendar" class="btn secondary-btn">Retour</button>
+                        <button type="submit" class="btn primary-btn">Confirmer le rendez-vous</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="confirmation-container" id="confirmation-container">
+                <div class="confirmation-card">
+                    <div class="confirmation-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Rendez-vous confirmé !</h3>
+                    <p>Votre rendez-vous a été planifié avec succès.</p>
+                    <div class="confirmation-details">
+                        <p><strong>Date:</strong> <span id="conf-date">--</span></p>
+                        <p><strong>Heure:</strong> <span id="conf-time">--</span></p>
+                        <p><strong>Sujet:</strong> <span id="conf-subject">--</span></p>
+                    </div>
+                    <p class="confirmation-message">Un email de confirmation a été envoyé à <span id="conf-email">--</span>.</p>
+                    <button id="new-appointment" class="btn primary-btn">Planifier un autre rendez-vous</button>
+                    <a href="{{ url_for('home') }}" class="btn secondary-btn">Retour à l'accueil</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="{{ url_for('static', filename='js/calendar.js') }}"></script>
+{% endblock %}
+

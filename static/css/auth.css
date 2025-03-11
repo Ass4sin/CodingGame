@@ -1,0 +1,189 @@
+:root {
+  --background: #1a0533;
+  --foreground: #f8f9fa;
+  --secondary: #f9a8c9;
+  --mauve: #c4b5fd;
+  --jaune: #ffeb5b;
+  --radius: 0.5rem;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at center, rgba(61, 18, 103, 0.8), var(--background));
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--secondary), transparent);
+  z-index: 1;
+}
+
+/* Auth Card */
+.card, form {
+  background-color: rgba(61, 18, 103, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(249, 168, 201, 0.1);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.card::before, form::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.7;
+}
+
+h3, .card h3 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--foreground);
+  position: relative;
+  text-align: center;
+  font-weight: 700;
+  text-shadow: 0 0 15px rgba(255, 235, 91, 0.3);
+}
+
+/* Form Elements */
+.mb-3, label {
+  display: block;
+  margin-bottom: 1.75rem;
+  position: relative;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.75rem;
+  color: var(--foreground);
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+.form-control {
+  width: 100%;
+  padding: 1rem;
+  background-color: rgba(61, 18, 103, 0.7);
+  border: 1px solid rgba(249, 168, 201, 0.2);
+  border-radius: var(--radius);
+  color: var(--foreground);
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+input:focus,
+.form-control:focus {
+  outline: none;
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(249, 168, 201, 0.2);
+}
+
+/* Buttons */
+button[type="submit"],
+input[type="submit"],
+.btn-primary {
+  background: var(--secondary);
+  color: var(--foreground);
+  border: none;
+  padding: 0.75rem 2.5rem;
+  font-size: 1.05rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  width: 100%;
+  margin-top: 1rem;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+}
+
+button[type="submit"]:hover,
+input[type="submit"]:hover,
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(249, 168, 201, 0.4);
+}
+
+button[type="submit"]:active,
+input[type="submit"]:active,
+.btn-primary:active {
+  transform: translateY(-1px);
+}
+
+/* Links */
+a {
+  display: block;
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--mauve);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  position: relative;
+  font-size: 0.95rem;
+}
+
+a:hover {
+  color: var(--foreground);
+  text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .card, form {
+    padding: 1.75rem;
+    max-width: 320px;
+  }
+
+  h3, .card h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  label {
+    font-size: 0.95rem;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  .form-control {
+    padding: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  button[type="submit"],
+  input[type="submit"],
+  .btn-primary {
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card, form {
+    padding: 1.5rem;
+    max-width: 280px;
+  }
+}

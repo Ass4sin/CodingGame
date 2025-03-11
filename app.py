@@ -1,5 +1,5 @@
 import stripe
-from flask import Flask, render_template, request, redirect, jsonify
+from flask import Flask, render_template, request, redirect, jsonify, url_for
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from flask_login import LoginManager, logout_user, login_user, current_user, login_required, UserMixin
@@ -86,6 +86,8 @@ def coaching_details():
 def contact():
     return render_template('contact.html')
 
+
+
 @app.route('/signup')
 def signup():
     return render_template('signup.html')
@@ -129,21 +131,21 @@ def login():
 @app.route('/logout')
 def logout():
    logout_user()
-   return 'Success'
+   return redirect(url_for('home'))
 
 
 @app.route('/blogs')
 def blog_list():
-    blogs = db.session.execute(db.select(Blog))
+    blogs = db.session.execute(db.select(Blog)).scalars()
     print(blogs)
     return render_template("blog_list.html", blogs=blogs)
 
 @app.route('/blogs/<blog_id>', methods=['POST', 'GET'])
 def blog_details(blog_id):
     if request.method == 'GET':
-        blogs = db.session.execute(db.select(Blog).filter_by(id=blog_id))
-        comments = db.session.execute(db.select(Comment))
-        return render_template("blog_list.html", blogs=blogs, comments=comments)
+        blogs = db.session.execute(db.select(Blog).filter(Blog.id == blog_id)).scalars()
+        comments = db.session.execute(db.select(Comment)).scalars()
+        return render_template("blog.html", blogs=blogs, comments=comments)
     elif request.method == 'POST':
         content = request.form.get('content')
         with app.app_context():
@@ -155,6 +157,7 @@ def blog_details(blog_id):
                 db.session.rollback()
                 print(f"Error: {e}")
                 return "An error occurred", 500
+            return  redirect(f'/blogs/{blog_id}')
 
 @app.route('/blogs/form', methods=['POST', 'GET'])
 def blog_form():
@@ -202,15 +205,22 @@ def create_checkout_session():
     except Exception as e:
         return jsonify(error=str(e)), 403
 
+@app.route('/account')
+@login_required
+def account():
+    # Get user's appointments if they exist
+    appointments = Appointment.query.filter_by(name=current_user.name).all()
+    return render_template('account.html', appointments=appointments)
 
-@app.route('/test')
+
+@app.route('/calendar')
 def test():
-    return render_template("test.html")
+    return render_template("calendar.html")
 
 
 
 
-@app.route('/test-date', methods=["POST"])
+@app.route('/calendar-date', methods=["POST"])
 def test_date():
     if request.method == 'POST':
         name = request.form['name']
@@ -221,7 +231,7 @@ def test_date():
         new_appointment = Appointment(name=name, date_time=date_time_obj)
         db.session.add(new_appointment)
         db.session.commit()
-        return redirect('/test')
+        return redirect('/')
     appointments = Appointment.query.all()
     return render_template('index.html', appointments=appointments)
 
