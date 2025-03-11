@@ -1,5 +1,5 @@
 import stripe
-from flask import Flask, render_template, request, redirect, jsonify, url_for
+from flask import Flask, render_template, request, redirect, jsonify, url_for, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from flask_login import LoginManager, logout_user, login_user, current_user, login_required, UserMixin
@@ -216,6 +216,16 @@ def test_date():
         return redirect('/test')
     appointments = Appointment.query.all()
     return render_template('index.html', appointments=appointments)
+
+# Ajoutez cette route pour le téléchargement du PDF
+@app.route('/download-packages')
+def download_packages():
+    # Assurez-vous que le dossier 'pdf' existe dans votre dossier 'static'
+    return send_from_directory(
+        directory=os.path.join(app.root_path, 'static', 'pdf'),
+        path='Packages.pdf',
+        as_attachment=True
+    )
 
 if __name__ == '__main__':
     app.run(debug=True)
