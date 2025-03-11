@@ -105,21 +105,6 @@
     </div>
     
     <div class="account-info">
-        <div class="info-card">
-            <h3>Informations personnelles</h3>
-            <div class="info-item">
-                <div class="info-label">Nom d'utilisateur:</div>
-                <div class="info-value">{{ current_user.name }}</div>
-            </div>
-            <div class="info-item">
-                <div class="info-label">Email:</div>
-                <div class="info-value">{{ current_user.email }}</div>
-            </div>
-            <div class="info-item">
-                <div class="info-label">Rôle:</div>
-                <div class="info-value">{{ current_user.role }}</div>
-            </div>
-        </div>
         
         {% if appointments %}
         <div class="info-card">
@@ -132,11 +117,50 @@
             {% endfor %}
         </div>
         {% endif %}
-    </div>
-    
+    </div>  
+
+    <form id="edit-form" method="POST" action="{{ url_for('update_profile') }}">
+        <div class="info-card">
+            <h3>Informations personnelles</h3>
+            <div class="info-item">
+                <div class="info-label">Nom d'utilisateur:</div>
+                <div class="info-value">
+                    <span id="name-text">{{ current_user.name }}</span>
+                    <input type="text" name="name" id="name-input" value="{{ current_user.name }}" style="display: none;">
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Email:</div>
+                <div class="info-value">
+                    <span id="email-text">{{ current_user.email }}</span>
+                    <input type="email" name="email" id="email-input" value="{{ current_user.email }}" style="display: none;">
+                </div>
+            </div>
+        </div>
+    </form>
+
     <div class="account-actions">
-        <a href="#" class="account-btn edit-btn">Modifier mon profil</a>
+        <button id="edit-btn" class="account-btn edit-btn">Modifier mon profil</button>
+        <button id="save-btn" class="account-btn edit-btn" style="display: none;">Enregistrer</button>
         <a href="{{ url_for('logout') }}" class="account-btn logout-btn">Déconnexion</a>
-    </div>
+    </div>  
 </div>
+
+<script>
+    document.getElementById("edit-btn").addEventListener("click", function() {
+        document.getElementById("edit-btn").style.display = "none";
+        document.getElementById("save-btn").style.display = "inline-block";
+        
+        document.getElementById("name-text").style.display = "none";
+        document.getElementById("name-input").style.display = "inline-block";
+        
+        document.getElementById("email-text").style.display = "none";
+        document.getElementById("email-input").style.display = "inline-block";
+    });
+
+    document.getElementById("save-btn").addEventListener("click", function() {
+        document.getElementById("edit-form").submit();
+    });
+</script>
+
 {% endblock %}

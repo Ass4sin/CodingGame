@@ -1,5 +1,5 @@
 import stripe
-from flask import Flask, render_template, request, redirect, jsonify, url_for, send_from_directory
+from flask import Flask, render_template, request, redirect, jsonify, url_for, send_from_directory, flash
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from flask_login import LoginManager, logout_user, login_user, current_user, login_required, UserMixin
@@ -319,6 +319,22 @@ def download_packages():
         path='Packages.pdf',
         as_attachment=True
     )
+
+@app.route('/update_profile', methods=['POST'])
+@login_required
+def update_profile():
+    new_name = request.form.get('name')
+    new_email = request.form.get('email')
+
+    if new_name and new_email:
+        current_user.name = new_name
+        current_user.email = new_email
+        db.session.commit()
+        flash("Profil mis à jour avec succès", "success")
+    else:
+        flash("Veuillez remplir tous les champs", "error")
+
+    return redirect(url_for('account'))  # Assure-toi que la route `account` existe
 
 # Point d'entrée de l'application, lance le serveur en mode debug
 if __name__ == '__main__':
