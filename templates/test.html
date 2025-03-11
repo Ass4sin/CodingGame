@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Pick a Date</h1>
+    <h2>Appointments</h2>
+
+<form action="/test-date" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" required>
+    <button type="submit">Submit</button>
+</form>
+<table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Date</th>
+        </tr>
+        {% for appointment in appointments %}
+        <tr>
+            <td>{{ appointment.name }}</td>
+            <td>{{ appointment.date }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

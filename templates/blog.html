@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Blogs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+        .blog-container {
+            max-width: 800px;
+            margin: auto;
+        }
+        .blog-post {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        .blog-title {
+            font-size: 1.5em;
+            color: #333;
+        }
+        .blog-content {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="blog-container">
+            <div class="blog-post">
+                <h2 class="blog-title">{{ blog.title }}</h2>
+                <p class="blog-content">{{ blog.content }}</p>
+            </div>
+        {% else %}
+            <p>Cet article n'éxiste pas.</p> 
+        {% endfor %}
+    </div>
+</body>
+</html>
