@@ -14,7 +14,7 @@
                     <h2 class="blog-title">{{ blog.title }}</h2>
                     <p class="blog-content">{{ blog.content }}</p>
                 </div>
-            
+
         {% else %}
             <p>Aucun article trouvé</p>
         {% endif %}
@@ -42,7 +42,7 @@
     <div class="edit-button">
         <a href="/blogs/edit/{{ blog.id }}" class="btn">Éditer le blog</a>
     </div>
-    <form action="/blogs/edit/{{ blog.id }}" method="POST" onsubmit="return confirm('Voulez-vous vraiment supprimer ce blog ?');">
+    <form action="/blogs/delete/{{ blog.id }}" method="POST" onsubmit="return confirm('Voulez-vous vraiment supprimer ce blog ?');">
     <button type="submit" style="background-color: red; color: white; border: none; padding: 10px; cursor: pointer;">
         Supprimer
     </button>

@@ -313,7 +313,7 @@ def delete_blog(blog_id):
         return "Une erreur est survenue", 500
 
     # Redirige vers la liste des blogs après suppression
-    return redirect(f'/blogs/{blog_id}')
+    return redirect('/blogs')
 
 # =====================================
 # Gestion des Rendez-vous et Autres
