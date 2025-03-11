@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/test.css') }}">
 </head>
 <body>
 <h1>Pick a Date</h1>
@@ -10,7 +11,7 @@
 
 <form action="/test-date" method="POST">
     <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
+    <input type="text" id="name" style="width: 95%;" name="name" required>
     <label for="date">Date:</label>
     <input type="date" id="date" name="date" required>
      <label for="time">Time:</label>

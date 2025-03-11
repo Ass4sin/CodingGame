@@ -1,5 +1,5 @@
 import stripe
-from flask import Flask, render_template, request, redirect, jsonify
+from flask import Flask, render_template, request, redirect, jsonify, url_for
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from flask_login import LoginManager, logout_user, login_user, current_user, login_required, UserMixin
@@ -133,7 +133,7 @@ def login():
 @app.route('/logout')
 def logout():
    logout_user()
-   return 'Success'
+   return redirect(url_for('home'))
 
 
 @app.route('/blogs')
@@ -186,6 +186,13 @@ def create_checkout_session():
         return jsonify({'id': session.id})
     except Exception as e:
         return jsonify(error=str(e)), 403
+
+@app.route('/account')
+@login_required
+def account():
+    # Get user's appointments if they exist
+    appointments = Appointment.query.filter_by(name=current_user.name).all()
+    return render_template('account.html', appointments=appointments)
 
 
 @app.route('/test')
